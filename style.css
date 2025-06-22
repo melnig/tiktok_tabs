@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #1c2526, #3a506b);
+  overflow: hidden;
+}
+
+.tabs {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: appear 1s ease-out;
+}
+
+.tab-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.tab-nav li {
+  flex: 1;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.tab-nav li.active {
+  color: #fff;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+.tab-nav li:hover.active {
+  color: #fff;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.tab-nav li:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-content {
+  display: none;
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
